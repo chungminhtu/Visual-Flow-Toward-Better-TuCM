@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Flow Toward Better</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+            padding: 2rem 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 300;
+            font-size: 2.5rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            letter-spacing: -0.025em;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        @media (min-width: 640px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Visual Flow Toward Better<br><span style="font-size: 0.7em; color: #9ca3af;">Góc Nhìn Cuộc Sống Để Học Hỏi Và Tốt Hơn</span></h1>
+    
+    <div class="gallery" id="gallery">
+    </div>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        
+        const imageUrls = [
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_124931_2025-05-28_124931.avif?alt=media&token=85d9454f-4c4f-418f-9c79-0e72949d6da9',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_124945_2025-05-28_124945.avif?alt=media&token=b0082cd7-5764-4930-8930-b922d7fdf34e',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125033_2025-05-28_125033.avif?alt=media&token=8d0cb103-c892-49ee-9ee0-d0272e387d7a',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125127_2025-05-28_125127.avif?alt=media&token=86d46ea1-cbef-4ef6-b61a-48064b8104eb',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125102_2025-05-28_125102.avif?alt=media&token=98d7079f-2fdd-49a7-a64e-e0384bf8b948',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125318_2025-05-28_125318.avif?alt=media&token=7e4c7f2d-b644-4ae8-ba25-73a2094f54f0',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125426_2025-05-28_125426.avif?alt=media&token=933c6e97-c0bd-43ac-8e2d-e8e94bb1ba36',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125339_2025-05-28_125339.avif?alt=media&token=6cef437d-ad82-4b3e-a4c0-3c582fd3bdd1',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125505_2025-05-28_125505.avif?alt=media&token=d6b9a651-16b9-4658-b2ee-1ce96cdbf394',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125648_2025-05-28_125648.avif?alt=media&token=9833c5ed-5474-4dd3-bb93-5531f27a7820',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125609_2025-05-28_125609.avif?alt=media&token=35ea8abe-2c96-46a2-a5a6-4f02f7498261',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125659_2025-05-28_125659.avif?alt=media&token=9b76e76a-db50-4345-bd11-67219e4be4f1',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125746_2025-05-28_125746.avif?alt=media&token=f60c8ec0-96af-481f-a3f0-75efe907a022',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125809_2025-05-28_125809.avif?alt=media&token=1f18473d-aebf-41f8-8852-72b898ded8d5',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125838_2025-05-28_125838.avif?alt=media&token=107acd2d-4c91-46d6-a18a-54209190bc92',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_125919_2025-05-28_125919.avif?alt=media&token=282450e7-be07-4f44-a854-005188a290b6',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_130227_2025-05-28_130227.avif?alt=media&token=b12255b6-566a-4c92-9db8-df465782e2dc',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_130159_2025-05-28_130159.avif?alt=media&token=7475f79c-05ab-4bfa-89bd-181d3ee5bd39',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_130238_2025-05-28_130238.avif?alt=media&token=b582ed05-2e58-409a-8ee4-fd315d3e9abe',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_130652_2025-05-28_130652.avif?alt=media&token=66e445c4-bcb9-49b2-aea8-df20a307a366',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_130617_2025-05-28_130617.avif?alt=media&token=8d5beca3-33d3-429e-b295-d476779ff890',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131229_2025-05-28_131229.avif?alt=media&token=d6fbaad1-0466-4600-b745-730c5078141c',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131140_2025-05-28_131140.avif?alt=media&token=813c2353-5cf7-4cd5-907a-70a21465133e',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131243_2025-05-28_131243.avif?alt=media&token=92d7fe73-e9fa-4b6b-b4ea-c5471578deb1',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131346_2025-05-28_131346.avif?alt=media&token=1fd0114f-0230-4e4c-b107-af632456c78b',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131355_2025-05-28_131355.avif?alt=media&token=d68a45b4-3ddf-4ad9-be28-f5ab2aed2624',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131401_2025-05-28_131401.avif?alt=media&token=e9749463-b25b-4607-88fc-8680b74e1d48',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131443_2025-05-28_131443.avif?alt=media&token=d5ef8748-60a5-43cc-84c2-6024379b5784',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131507_2025-05-28_131507.avif?alt=media&token=156289c3-872d-4605-b48c-c333b183d2d2',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131614_2025-05-28_131614.avif?alt=media&token=ba83c0e3-b6a7-40b9-b3df-11091af287b9',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131652_2025-05-28_131652.avif?alt=media&token=f1c7ac75-310a-4691-a4ca-7e5bcbf76ff3',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131843_2025-05-28_131843.avif?alt=media&token=5fa7e737-3609-488e-a011-a33abe5c2201',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131827_2025-05-28_131827.avif?alt=media&token=f9ffad9c-77c9-43e1-a0c0-20a9d832431f',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_131736_2025-05-28_131736.avif?alt=media&token=accb400f-b327-4c45-96a2-3c020a8d8c34',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_134145_2025-05-28_134145.avif?alt=media&token=ba864ded-2fc2-4b38-bf88-e124f2ae54de',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_132016_2025-05-28_132016.avif?alt=media&token=e232c896-ad7c-41ff-ab13-ef503431741c',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_132020_2025-05-28_132020.avif?alt=media&token=36f7a262-f898-497e-911d-d306244187d4',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_134157_2025-05-28_134157.avif?alt=media&token=1293cb30-f4f7-4248-be8d-016ea5fe5511',
+            'https://firebasestorage.googleapis.com/v0/b/notion-images-upload.appspot.com/o/EditorJS%2Fimages%2Fimage_2025-05-28_134237_2025-05-28_134237.avif?alt=media&token=632f1df5-1075-466a-9365-78656766ae72',
+        ];
+        
+        imageUrls.forEach(url => {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = 'Gallery Image';
+            gallery.appendChild(img);
+        });
+    </script>
+
+    <footer style="text-align: center; margin-top: 4rem; padding: 2rem; color: #9ca3af; font-size: 0.875rem;">
+        Images belong to <a href="https://x.com/visualhustles?lang=en" target="_blank" style="color: #6b7280; text-decoration: none;">@visualhustles</a>
+    </footer>
+</body>
+</html> 
